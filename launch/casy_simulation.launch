@@ -1,0 +1,7 @@
+<launch>
+    <!-- Launch the CASy controller node -->
+    <node name="casy_controller" pkg="casy_simulation" type="casy_controller.py" output="screen"/>
+    
+    <!-- Launch the simulation server node -->
+    <node name="simulation_server" pkg="casy_simulation" type="simulation_server.py" output="screen"/>
+</launch>

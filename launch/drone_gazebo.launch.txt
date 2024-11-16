@@ -1,0 +1,15 @@
+<launch>
+  <!-- Launch Gazebo with an empty world -->
+  <arg name="world" default="$(find gazebo_ros)/worlds/empty.world"/>
+  
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(arg world)"/>
+  </include>
+
+  <!-- Load the drone model -->
+  <param name="robot_description" command="$(find xacro)/xacro $(find casy_simulation)/urdf/drone.urdf"/>
+
+  <!-- Spawn the drone in Gazebo -->
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" output="screen"
+        args="-param robot_description -model drone -x 0 -y 0 -z 1"/>
+</launch>
