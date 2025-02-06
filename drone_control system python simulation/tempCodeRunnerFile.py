@@ -1,0 +1,1 @@
+ drone = DroneModel([0, 0, 0])
